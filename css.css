@@ -261,6 +261,10 @@ margin-top: 5px
         width: 100vw;
     }
 
+    #resultDiv {
+        font-size: 10px;
+    }
+
     .midMacro {
         width: 100vw;
     }

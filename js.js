@@ -62,221 +62,197 @@ function onChanged () {
     inputKurt.checked || inputGrace.checked ? warningDiv1.innerText = " " : warningDiv1.innerText = "You need to select one"
 }
 
-let turkeyMince5 = {
-    turkeyCalories: 1.41,
-    turkeyCarbs: 0.005,
-    turkeySalt: 0.0018,
-    turkeyProtein: 0.32,
-    turkeyPotassium: 2.94
-}
-
-let turkeyMince12 = {
-    turkeyCalories: 1.40,
-    turkeyCarbs: 0.005,
-    turkeySalt: 0.0025,
-    turkeyProtein: 0.19,
-    turkeyPotassium: 2.94
-}
-
-let beefMince5 = {
-    beefCalories: 1.74,
-    beefCarbs: 0.007,
-    beefSalt: 0.0026,
-    beefProtein: 0.27,
-    beefPotassium: 2.18
-}
-
-let beefMince12 = {
-    beefCalories: 2.33,
-    beefCarbs: 0.007,
-    beefSalt: 0.0029,
-    beefProtein: 0.27,
-    beefPotassium: 2.18
-}
-
-let chicken = {
-    chickenCalories: 1.32,
-    chickenCarbs: 0.005,
-    chickenSalt: 0.0018,
-    chickenProtein: 0.28,
-    chickenPotassium: 2.23
-}
-
-let egg = {
+const foodItems = [
+turkeyMince5 = {
+    calories: 1.41,
+    carbs: 0.005,
+    salt: 0.0018,
+    protein: 0.32,
+    potassium: 2.94
+},
+turkeyMince12 = {
+    calories: 1.40,
+    carbs: 0.005,
+    salt: 0.0025,
+    protein: 0.19,
+    potassium: 2.94
+},
+beefMince5 = {
+    calories: 1.74,
+    carbs: 0.007,
+    salt: 0.0026,
+    protein: 0.27,
+    potassium: 2.18
+},
+beefMince12 = {
+    calories: 2.33,
+    carbs: 0.007,
+    salt: 0.0029,
+    protein: 0.27,
+    potassium: 2.18
+},
+chicken = {
+    calories: 1.32,
+    carbs: 0.005,
+    salt: 0.0018,
+    protein: 0.28,
+    potassium: 2.23
+},
+egg = {
     eggCalories: 66,
     eggCarbs: 0.5,
     eggSalt: 0.20,
     eggProtein: 6.4,
     eggPotassium: 65
+},
+smokedSalmon = {
+    calories: 1.91,
+    carbs: 0.005,
+    salt: 0.009,
+    protein: 0.24,
+    potassium: 1.75
+},
+bacon = {
+    calories: 2.79,
+    carbs: 0.010,
+    salt: 0.033,
+    protein: 0.29,
+    potassium: 5.65
+},
+tuna = {
+    calories: 1.06,
+    carbs: 0,
+    salt: 0.0056,
+    protein: 0.25,
+    potassium: 2.00
+},
+salmon = {
+    calories: 2.32,
+    carbs: 0.005,
+    salt: 0.0023,
+    protein: 0.22,
+    potassium: 3.20
+},
+chickenGoujons = {
+    calories: 2.57,
+    carbs: 0.14,
+    salt: 0.0059,
+    protein: 0.15,
+    potassium: 3.00
+},
+fishFingers = {
+    calories: 2.17,
+    carbs: 0.21,
+    salt: 0.0062,
+    protein: 0.13,
+    potassium: 2.00
+},
+noodles = {
+    calories: 174,
+    carbs: 34,
+    salt: 0.90,
+    protein: 7.2,
+    potassium: 50
+},
+rice = {
+    calories: 370,
+    carbs: 76,
+    salt: 0.08,
+    protein: 7.6,
+    potassium: 200
+},
+potatoes = {
+    calories: 1.07,
+    carbs: 0.23,
+    salt: 0.0001,
+    protein: 0.025,
+    potassium: 6.00
+},
+ovenChips = {
+    calories: 1.43,
+    carbs: 0.21,
+    salt: 0.0019,
+    protein: 0.023,
+    potassium: 5.00
+},
+wraps = {
+    calories: 88,
+    carbs: 15,
+    salt: 0.29,
+    protein: 2.5,
+    potassium: 33
+},
+bagelThin = {
+    calories: 130,
+    carbs: 25,
+    salt: 0.40,
+    protein: 5.00,
+    potassium: 50
+},
+hashBrowns = {
+    calories: 138,
+    carbs: 20,
+    salt: 0.33,
+    protein: 1.90,
+    potassium: 450
+},
+breakfastMuffin = {
+    calories: 146,
+    carbs: 26.9,
+    salt: 0.50,
+    protein: 5.60,
+    potassium: 80
+},
+oats = {
+    calories: 3.46,
+    carbs: 0.24,
+    salt: 0.0020,
+    protein: 0.032,
+    potassium: 1.30
+},
+squareBar = {
+    calories: 119,
+    carbs: 21,
+    salt: 0.21,
+    protein: 0.8,
+    potassium: 30
+},
+freddo = {
+    calories: 95,
+    carbs: 10,
+    salt: 0.04,
+    protein: 1.4,
+    potassium: 30
+},
+bologneseSauce = {
+    calories: 0.34,
+    carbs: 0.062,
+    salt: 0.0066,
+    protein: 0.005,
+    potassium: 1.20
+},
+creamOfTartar = {
+    calories: 12,
+    carbs: 2.5,
+    salt: 0.0004,
+    protein: 0,
+    potassium: 830
+},
+smoothieMix = {
+    calories: 44,
+    carbs: 9.4,
+    salt: 0.01,
+    protein: 0.5,
+    potassium: 200
+},
+miniEggBar = {
+    calories: 5.25,
+    carbs: 0.59,
+    salt: 0.0024,
+    protein: 0.068,
+    potassium: 2
 }
-
-let smokedSalmon = {
-    smokedSalmonCalories: 1.91,
-    smokedSalmonCarbs: 0.005,
-    smokedSalmonSalt: 0.009,
-    smokedSalmonProtein: 0.24,
-    smokedSalmonPotassium: 1.75
-}
-
-let bacon = {
-    baconCalories: 2.79,
-    baconCarbs: 0.010,
-    baconSalt: 0.033,
-    baconProtein: 0.29,
-    baconPotassium: 5.65
-}
-
-let tuna = {
-    tunaCalories: 1.06,
-    tunaCarbs: 0,
-    tunaSalt: 0.0056,
-    tunaProtein: 0.25,
-    tunaPotassium: 2.00
-}
-
-let salmon = {
-    salmonCalories: 2.32,
-    salmonCarbs: 0.005,
-    salmonSalt: 0.0023,
-    salmonProtein: 0.22,
-    salmonPotassium: 3.20
-}
-
-let chickenGoujons = {
-    chickenGoujonsCalories: 2.57,
-    chickenGoujonsCarbs: 0.14,
-    chickenGoujonsSalt: 0.0059,
-    chickenGoujonsProtein: 0.15,
-    chickenGoujonsPotassium: 3.00
-}
-
-let fishFingers = {
-    fishFingersCalories: 2.17,
-    fishFingersCarbs: 0.21,
-    fishFingersSalt: 0.0062,
-    fishFingersProtein: 0.13,
-    fishFingersPotassium: 2.00
-}
-
-let noodles = {
-    noodlesCalories: 174,
-    noodlesCarbs: 34,
-    noodlesSalt: 0.90,
-    noodlesProtein: 7.2,
-    noodlesPotassium: 50
-}
-
-let rice = {
-    riceCalories: 370,
-    riceCarbs: 76,
-    riceSalt: 0.08,
-    riceProtein: 7.6,
-    ricePotassium: 200
-}
-
-let potatoes = {
-    potatoesCalories: 1.07,
-    potatoesCarbs: 0.23,
-    potatoesSalt: 0.0001,
-    potatoesProtein: 0.025,
-    potatoesPotassium: 6.00
-}
-
-let ovenChips = {
-    ovenChipsCalories: 1.43,
-    ovenChipsCarbs: 0.21,
-    ovenChipsSalt: 0.0019,
-    ovenChipsProtein: 0.023,
-    ovenChipsPotassium: 5.00
-}
-
-let wraps = {
-    wrapsCalories: 88,
-    wrapsCarbs: 15,
-    wrapsSalt: 0.29,
-    wrapsProtein: 2.5,
-    wrapsPotassium: 33
-}
-
-let bagelThin = {
-    bagelThinCalories: 130,
-    bagelThinCarbs: 25,
-    bagelThinSalt: 0.40,
-    bagelThinProtein: 5.00,
-    bagelThinPotassium: 50
-}
-
-let hashBrowns = {
-    hashBrownsCalories: 138,
-    hashBrownsCarbs: 20,
-    hashBrownsSalt: 0.33,
-    hashBrownsProtein: 1.90,
-    hashBrownsPotassium: 450
-}
-
-let breakfastMuffin = {
-    breakfastMuffinCalories: 146,
-    breakfastMuffinCarbs: 26.9,
-    breakfastMuffinSalt: 0.50,
-    breakfastMuffinProtein: 5.60,
-    breakfastMuffinPotassium: 80
-}
-
-let oats = {
-    oatsCalories: 3.46,
-    oatsCarbs: 0.24,
-    oatsSalt: 0.0020,
-    oatsProtein: 0.032,
-    oatsPotassium: 1.30
-}
-
-let squareBar = {
-    squareBarCalories: 119,
-    squareBarCarbs: 21,
-    squareBarSalt: 0.21,
-    squareBarProtein: 0.8,
-    squareBarPotassium: 30
-}
-
-let freddo = {
-    freddoCalories: 95,
-    freddoCarbs: 10,
-    freddoSalt: 0.04,
-    freddoProtein: 1.4,
-    freddoPotassium: 30
-}
-
-let bologneseSauce = {
-    bologneseSauceCalories: 0.34,
-    bologneseSauceCarbs: 0.062,
-    bologneseSauceSalt: 0.0066,
-    bologneseSauceProtein: 0.005,
-    bologneseSaucePotassium: 1.20
-}
-
-let creamOfTartar = {
-    creamOfTartarCalories: 12,
-    creamOfTartarCarbs: 2.5,
-    creamOfTartarSalt: 0.0004,
-    creamOfTartarProtein: 0,
-    creamOfTartarPotassium: 830
-}
-
-let smoothieMix = {
-    smoothieMixCalories: 44,
-    smoothieMixCarbs: 9.4,
-    smoothieMixSalt: 0.01,
-    smoothieMixProtein: 0.5,
-    smoothieMixPotassium: 200
-}
-
-let miniEggBar = {
-    miniEggBarCalories: 5.25,
-    miniEggBarCarbs: 0.59,
-    miniEggBarSalt: 0.0024,
-    miniEggBarProtein: 0.068,
-    miniEggBarPotassium: 2
-}
+] 
 
 let caloriesTotal = 0;
 let carbsTotal = 0;
@@ -291,11 +267,11 @@ let inputMacroWater = document.getElementById('inputMacroWater')
 
 document.getElementById('turkeyMince5').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * turkeyMince5.turkeyCalories
-    carbsTotal += amount * turkeyMince5.turkeyCarbs
-    saltTotal += amount * turkeyMince5.turkeySalt
-    proteinTotal += amount * turkeyMince5.turkeyProtein
-    potassiumTotal += amount * turkeyMince5.turkeyPotassium
+    caloriesTotal += amount * turkeyMince5.calories
+    carbsTotal += amount * turkeyMince5.carbs
+    saltTotal += amount * turkeyMince5.salt
+    proteinTotal += amount * turkeyMince5.protein
+    potassiumTotal += amount * turkeyMince5.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -321,11 +297,11 @@ document.getElementById('turkeyMince5').onclick = function () {
 
 document.getElementById('turkeyMince12').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * turkeyMince12.turkeyCalories
-    carbsTotal += amount * turkeyMince12.turkeyCarbs
-    saltTotal += amount * turkeyMince12.turkeySalt
-    proteinTotal += amount * turkeyMince12.turkeyProtein
-    potassiumTotal += amount * turkeyMince12.turkeyPotassium
+    caloriesTotal += amount * turkeyMince12.calories
+    carbsTotal += amount * turkeyMince12.carbs
+    saltTotal += amount * turkeyMince12.salt
+    proteinTotal += amount * turkeyMince12.protein
+    potassiumTotal += amount * turkeyMince12.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -350,11 +326,11 @@ document.getElementById('turkeyMince12').onclick = function () {
 
 document.getElementById('beefMince5').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * beefMince5.beefCalories
-    carbsTotal += amount * beefMince5.beefCarbs
-    saltTotal += amount * beefMince5.beefSalt
-    proteinTotal += amount * beefMince5.beefProtein
-    potassiumTotal += amount * beefMince5.beefPotassium
+    caloriesTotal += amount * beefMince5.calories
+    carbsTotal += amount * beefMince5.carbs
+    saltTotal += amount * beefMince5.salt
+    proteinTotal += amount * beefMince5.protein
+    potassiumTotal += amount * beefMince5.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -379,11 +355,11 @@ document.getElementById('beefMince5').onclick = function () {
 
 document.getElementById('beefMince12').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * beefMince12.beefCalories
-    carbsTotal += amount * beefMince12.beefCarbs
-    saltTotal += amount * beefMince12.beefSalt
-    proteinTotal += amount * beefMince12.beefProtein
-    potassiumTotal += amount * beefMince12.beefPotassium
+    caloriesTotal += amount * beefMince12.calories
+    carbsTotal += amount * beefMince12.carbs
+    saltTotal += amount * beefMince12.salt
+    proteinTotal += amount * beefMince12.protein
+    potassiumTotal += amount * beefMince12.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -408,11 +384,11 @@ document.getElementById('beefMince12').onclick = function () {
 
 document.getElementById('chicken').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * chicken.chickenCalories
-    carbsTotal += amount * chicken.chickenCarbs
-    saltTotal += amount * chicken.chickenSalt
-    proteinTotal += amount * chicken.chickenProtein
-    potassiumTotal += amount * chicken.chickenPotassium
+    caloriesTotal += amount * chicken.calories
+    carbsTotal += amount * chicken.carbs
+    saltTotal += amount * chicken.salt
+    proteinTotal += amount * chicken.protein
+    potassiumTotal += amount * chicken.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -461,11 +437,11 @@ document.getElementById('egg').onclick = function () {
 
 document.getElementById('smokedSalmon').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * smokedSalmon.smokedSalmonCalories
-    carbsTotal += amount * smokedSalmon.smokedSalmonCarbs
-    saltTotal += amount * smokedSalmon.smokedSalmonSalt
-    proteinTotal += amount * smokedSalmon.smokedSalmonProtein
-    potassiumTotal += amount * smokedSalmon.smokedSalmonPotassium
+    caloriesTotal += amount * smokedSalmon.calories
+    carbsTotal += amount * smokedSalmon.carbs
+    saltTotal += amount * smokedSalmon.salt
+    proteinTotal += amount * smokedSalmon.protein
+    potassiumTotal += amount * smokedSalmon.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -490,11 +466,11 @@ document.getElementById('smokedSalmon').onclick = function () {
 
 document.getElementById('bacon').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * bacon.baconCalories
-    carbsTotal += amount * bacon.baconCarbs
-    saltTotal += amount * bacon.baconSalt
+    caloriesTotal += amount * bacon.calories
+    carbsTotal += amount * bacon.carbs
+    saltTotal += amount * bacon.salt
     proteinTotal += amount * bacon.baconProtein
-    potassiumTotal += amount * bacon.baconPotassium
+    potassiumTotal += amount * bacon.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -519,11 +495,11 @@ document.getElementById('bacon').onclick = function () {
 
 document.getElementById('tuna').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * tuna.tunaCalories
-    carbsTotal += amount * tuna.tunaCarbs
-    saltTotal += amount * tuna.tunaSalt
-    proteinTotal += amount * tuna.tunaProtein
-    potassiumTotal += amount * tuna.tunaPotassium
+    caloriesTotal += amount * tuna.calories
+    carbsTotal += amount * tuna.carbs
+    saltTotal += amount * tuna.salt
+    proteinTotal += amount * tuna.protein
+    potassiumTotal += amount * tuna.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -548,11 +524,11 @@ document.getElementById('tuna').onclick = function () {
 
 document.getElementById('salmon').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * salmon.salmonCalories
-    carbsTotal += amount * salmon.salmonCarbs
-    saltTotal += amount * salmon.salmonSalt
-    proteinTotal += amount * salmon.salmonProtein
-    potassiumTotal += amount * salmon.salmonPotassium
+    caloriesTotal += amount * salmon.calories
+    carbsTotal += amount * salmon.carbs
+    saltTotal += amount * salmon.salt
+    proteinTotal += amount * salmon.protein
+    potassiumTotal += amount * salmon.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -577,11 +553,11 @@ document.getElementById('salmon').onclick = function () {
 
 document.getElementById('chickenGoujons').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * chickenGoujons.chickenGoujonsCalories
-    carbsTotal += amount * chickenGoujons.chickenGoujonsCarbs
-    saltTotal += amount * chickenGoujons.chickenGoujonsSalt
-    proteinTotal += amount * chickenGoujons.chickenGoujonsProtein
-    potassiumTotal += amount * chickenGoujons.chickenGoujonsPotassium
+    caloriesTotal += amount * chickenGoujons.calories
+    carbsTotal += amount * chickenGoujons.carbs
+    saltTotal += amount * chickenGoujons.salt
+    proteinTotal += amount * chickenGoujons.protein
+    potassiumTotal += amount * chickenGoujons.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -606,11 +582,11 @@ document.getElementById('chickenGoujons').onclick = function () {
 
 document.getElementById('fishFingers').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * fishFingers.fishFingersCalories
-    carbsTotal += amount * fishFingers.fishFingersCarbs
-    saltTotal += amount * fishFingers.fishFingersSalt
-    proteinTotal += amount * fishFingers.fishFingersProtein
-    potassiumTotal += amount * fishFingers.fishFingersPotassium
+    caloriesTotal += amount * fishFingers.calories
+    carbsTotal += amount * fishFingers.carbs
+    saltTotal += amount * fishFingers.salt
+    proteinTotal += amount * fishFingers.protein
+    potassiumTotal += amount * fishFingers.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -634,11 +610,11 @@ document.getElementById('fishFingers').onclick = function () {
 } 
 
 document.getElementById('noodles').onclick = function () {
-    caloriesTotal += 1 * noodles.noodlesCalories
-    carbsTotal += 1 * noodles.noodlesCarbs
-    saltTotal += 1 * noodles.noodlesSalt
-    proteinTotal += 1 * noodles.noodlesProtein
-    potassiumTotal += 1 * noodles.noodlesPotassium
+    caloriesTotal += 1 * noodles.calories
+    carbsTotal += 1 * noodles.carbs
+    saltTotal += 1 * noodles.salt
+    proteinTotal += 1 * noodles.protein
+    potassiumTotal += 1 * noodles.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -656,11 +632,11 @@ document.getElementById('noodles').onclick = function () {
 } 
 
 document.getElementById('rice').onclick = function () {
-    caloriesTotal += 1 * rice.riceCalories
-    carbsTotal += 1 * rice.riceCarbs
-    saltTotal += 1 * rice.riceSalt
-    proteinTotal += 1 * rice.riceProtein
-    potassiumTotal += 1 * rice.ricePotassium
+    caloriesTotal += 1 * rice.calories
+    carbsTotal += 1 * rice.carbs
+    saltTotal += 1 * rice.salt
+    proteinTotal += 1 * rice.protein
+    potassiumTotal += 1 * rice.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -679,11 +655,11 @@ document.getElementById('rice').onclick = function () {
 
 document.getElementById('potatoes').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * potatoes.potatoesCalories
-    carbsTotal += amount * potatoes.potatoesCarbs
-    saltTotal += amount * potatoes.potatoesSalt
-    proteinTotal += amount * potatoes.potatoesProtein
-    potassiumTotal += amount * potatoes.potatoesPotassium
+    caloriesTotal += amount * potatoes.calories
+    carbsTotal += amount * potatoes.carbs
+    saltTotal += amount * potatoes.salt
+    proteinTotal += amount * potatoes.protein
+    potassiumTotal += amount * potatoes.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -708,11 +684,11 @@ document.getElementById('potatoes').onclick = function () {
 
 document.getElementById('ovenChips').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * ovenChips.ovenChipsCalories
-    carbsTotal += amount * ovenChips.ovenChipsCarbs
-    saltTotal += amount * ovenChips.ovenChipsSalt
-    proteinTotal += amount * ovenChips.ovenChipsProtein
-    potassiumTotal += amount * ovenChips.ovenChipsPotassium
+    caloriesTotal += amount * ovenChips.calories
+    carbsTotal += amount * ovenChips.carbs
+    saltTotal += amount * ovenChips.salt
+    proteinTotal += amount * ovenChips.protein
+    potassiumTotal += amount * ovenChips.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -737,11 +713,11 @@ document.getElementById('ovenChips').onclick = function () {
 
 document.getElementById('wraps').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += 1 * wraps.wrapsCalories
-    carbsTotal += 1 * wraps.wrapsCarbs
-    saltTotal += 1 * wraps.wrapsSalt
-    proteinTotal += 1 * wraps.wrapsProtein
-    potassiumTotal += 1 * wraps.wrapsPotassium
+    caloriesTotal += 1 * wraps.calories
+    carbsTotal += 1 * wraps.carbs
+    saltTotal += 1 * wraps.salt
+    proteinTotal += 1 * wraps.protein
+    potassiumTotal += 1 * wraps.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -759,11 +735,11 @@ document.getElementById('wraps').onclick = function () {
 } 
 
 document.getElementById('bagelThin').onclick = function () {
-    caloriesTotal += 1 * bagelThin.bagelThinCalories
-    carbsTotal += 1 * bagelThin.bagelThinCarbs
-    saltTotal += 1 * bagelThin.bagelThinSalt
-    proteinTotal += 1 * bagelThin.bagelThinProtein
-    potassiumTotal += 1 * bagelThin.bagelThinPotassium
+    caloriesTotal += 1 * bagelThin.calories
+    carbsTotal += 1 * bagelThin.carbs
+    saltTotal += 1 * bagelThin.salt
+    proteinTotal += 1 * bagelThin.protein
+    potassiumTotal += 1 * bagelThin.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -781,11 +757,11 @@ document.getElementById('bagelThin').onclick = function () {
 } 
 
 document.getElementById('hashBrowns').onclick = function () {
-    caloriesTotal += 1 * hashBrowns.hashBrownsCalories
-    carbsTotal += 1 * hashBrowns.hashBrownsCarbs
-    saltTotal += 1 * hashBrowns.hashBrownsSalt
-    proteinTotal += 1 * hashBrowns.hashBrownsProtein
-    potassiumTotal += 1 * hashBrowns.hashBrownsPotassium
+    caloriesTotal += 1 * hashBrowns.calories
+    carbsTotal += 1 * hashBrowns.carbs
+    saltTotal += 1 * hashBrowns.salt
+    proteinTotal += 1 * hashBrowns.protein
+    potassiumTotal += 1 * hashBrowns.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -803,11 +779,11 @@ document.getElementById('hashBrowns').onclick = function () {
 } 
 
 document.getElementById('breakfastMuffin').onclick = function () {
-    caloriesTotal += 1 * breakfastMuffin.breakfastMuffinCalories
-    carbsTotal += 1 * breakfastMuffin.breakfastMuffinCarbs
-    saltTotal += 1 * breakfastMuffin.breakfastMuffinSalt
-    proteinTotal += 1 * breakfastMuffin.breakfastMuffinProtein
-    potassiumTotal += 1 * breakfastMuffin.breakfastMuffinPotassium
+    caloriesTotal += 1 * breakfastMuffin.calories
+    carbsTotal += 1 * breakfastMuffin.carbs
+    saltTotal += 1 * breakfastMuffin.salt
+    proteinTotal += 1 * breakfastMuffin.protein
+    potassiumTotal += 1 * breakfastMuffin.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -826,11 +802,11 @@ document.getElementById('breakfastMuffin').onclick = function () {
 
 document.getElementById('oats').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * oats.oatsCalories
-    carbsTotal += amount * oats.oatsCarbs
-    saltTotal += amount * oats.oatsSalt
-    proteinTotal += amount * oats.oatsProtein
-    potassiumTotal += amount * oats.oatsPotassium
+    caloriesTotal += amount * oats.calories
+    carbsTotal += amount * oats.carbs
+    saltTotal += amount * oats.salt
+    proteinTotal += amount * oats.protein
+    potassiumTotal += amount * oats.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -854,11 +830,11 @@ document.getElementById('oats').onclick = function () {
 } 
 
 document.getElementById('squareBar').onclick = function () {
-    caloriesTotal += 1 * squareBar.squareBarCalories
-    carbsTotal += 1 * squareBar.squareBarCarbs
-    saltTotal += 1 * squareBar.squareBarSalt
-    proteinTotal += 1 * squareBar.squareBarProtein
-    potassiumTotal += 1 * squareBar.squareBarPotassium
+    caloriesTotal += 1 * squareBar.calories
+    carbsTotal += 1 * squareBar.carbs
+    saltTotal += 1 * squareBar.salt
+    proteinTotal += 1 * squareBar.protein
+    potassiumTotal += 1 * squareBar.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -876,11 +852,11 @@ document.getElementById('squareBar').onclick = function () {
 } 
 
 document.getElementById('freddo').onclick = function () {
-    caloriesTotal += 1 * freddo.freddoCalories
-    carbsTotal += 1 * freddo.freddoCarbs
-    saltTotal += 1 * freddo.freddoSalt
-    proteinTotal += 1 * freddo.freddoProtein
-    potassiumTotal += 1 * freddo.freddoPotassium
+    caloriesTotal += 1 * freddo.calories
+    carbsTotal += 1 * freddo.carbs
+    saltTotal += 1 * freddo.salt
+    proteinTotal += 1 * freddo.protein
+    potassiumTotal += 1 * freddo.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -899,11 +875,11 @@ document.getElementById('freddo').onclick = function () {
 
 document.getElementById('bologneseSauce').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * bologneseSauce.bologneseSauceCalories
-    carbsTotal += amount * bologneseSauce.bologneseSauceCarbs
-    saltTotal += amount * bologneseSauce.bologneseSauceSalt
-    proteinTotal += amount * bologneseSauce.bologneseSauceProtein
-    potassiumTotal += amount * bologneseSauce.bologneseSaucePotassium
+    caloriesTotal += amount * bologneseSauce.calories
+    carbsTotal += amount * bologneseSauce.carbs
+    saltTotal += amount * bologneseSauce.salt
+    proteinTotal += amount * bologneseSauce.protein
+    potassiumTotal += amount * bologneseSauce.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"
@@ -927,11 +903,11 @@ document.getElementById('bologneseSauce').onclick = function () {
 } 
 
 document.getElementById('creamOfTartar').onclick = function () {
-    caloriesTotal += 1 * creamOfTartar.creamOfTartarCalories
-    carbsTotal += 1 * creamOfTartar.creamOfTartarCarbs
-    saltTotal += 1 * creamOfTartar.creamOfTartarSalt
-    proteinTotal += 1 * creamOfTartar.creamOfTartarProtein
-    potassiumTotal += 1 * creamOfTartar.creamOfTartarPotassium
+    caloriesTotal += 1 * creamOfTartar.calories
+    carbsTotal += 1 * creamOfTartar.carbs
+    saltTotal += 1 * creamOfTartar.salt
+    proteinTotal += 1 * creamOfTartar.protein
+    potassiumTotal += 1 * creamOfTartar.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -949,11 +925,11 @@ document.getElementById('creamOfTartar').onclick = function () {
 } 
 
 document.getElementById('smoothieMix').onclick = function () {
-    caloriesTotal += 1 * smoothieMix.smoothieMixCalories
-    carbsTotal += 1 * smoothieMix.smoothieMixCarbs
-    saltTotal += 1 * smoothieMix.smoothieMixSalt
-    proteinTotal += 1 * smoothieMix.smoothieMixProtein
-    potassiumTotal += 1 * smoothieMix.smoothieMixPotassium
+    caloriesTotal += 1 * smoothieMix.calories
+    carbsTotal += 1 * smoothieMix.carbs
+    saltTotal += 1 * smoothieMix.salt
+    proteinTotal += 1 * smoothieMix.protein
+    potassiumTotal += 1 * smoothieMix.potassium
 
     inputMacroResult.style.color = "inherit"
     inputMacroResult.innerText = caloriesTotal.toFixed(0) + " Calories | " + carbsTotal.toFixed(0) + "g Carbs | " + proteinTotal.toFixed(0) + "g Protein | " + saltTotal.toFixed(2) + "g Salt | " + potassiumTotal.toFixed(0) + "mg Potassium"
@@ -972,11 +948,11 @@ document.getElementById('smoothieMix').onclick = function () {
 
 document.getElementById('miniEggBar').onclick = function () {
     let amount = document.getElementById('inputMacro').value;
-    caloriesTotal += amount * miniEggBar.miniEggBarCalories
-    carbsTotal += amount * miniEggBar.miniEggBarCarbs
-    saltTotal += amount * miniEggBar.miniEggBarSalt
-    proteinTotal += amount * miniEggBar.miniEggBarProtein
-    potassiumTotal += amount * miniEggBar.miniEggBarPotassium
+    caloriesTotal += amount * miniEggBar.calories
+    carbsTotal += amount * miniEggBar.carbs
+    saltTotal += amount * miniEggBar.salt
+    proteinTotal += amount * miniEggBar.protein
+    potassiumTotal += amount * miniEggBar.potassium
 
     if (!amount) {
         inputMacroResult.style.color = "red"

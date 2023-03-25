@@ -228,6 +228,7 @@ button {
 #warningDiv1, #warningDiv2 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 14px;
+    color: red;
 }
 
 #warningDiv2 {

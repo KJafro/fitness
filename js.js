@@ -22,6 +22,7 @@ function weightFunc () {
     !inputKurt.checked && !inputGrace.checked ? warningDiv1.innerText = "You need to select an option" : warningDiv1.innerText = " ";
     
     if (inputCalories.length===0||inputSteps.length===0||inputGym.length===0) {
+        warningDiv2.style.color = "red"
         warningDiv2.innerText = "Enter all options"
         return
     } else {

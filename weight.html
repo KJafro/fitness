@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alkatra&family=Allura&family=Italianno&family=Josefin+Sans:wght@100;200;300;400;500&family=Kaushan+Script&family=Lora:ital,wght@1,400;1,500;1,600&family=Philosopher&family=Solitreo&family=Space+Grotesk:wght@300&family=Varela&family=Varela+Round&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="containerWeight">
+        <div class="wrapper2Weight">
+        <div class="wrapperWeight">
+            <h1>Weight Calculator</h1>
+            <div class="radioDiv">
+            <label for="name" id="labelKurt">Kurt</label>
+            <input type="radio" name="name" id="inputKurt" onchange="onChanged()">
+            <label for="name">Grace</label>
+            <input type="radio" name="name" id="inputGrace" onchange="onChanged()">
+            <div id="warningDiv1"></div>
+        </div>
+        <input type="text" id="inputCalories" placeholder="CALORIES"><br>
+        <input type="text" id="inputSteps" placeholder="STEPS"><br>
+        <input type="text" id="inputGym" placeholder="MINUTES IN GYM"><br>
+        <div id="warningDiv2"></div>
+        <button id="submitWeight" onclick="weightFunc()">SUBMIT</button>
+        <div id="resultDiv"></div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="js.js"></script>
+</html>

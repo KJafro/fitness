@@ -270,8 +270,8 @@ margin-top: 5px
 
     .midMacro {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: normal;
+        align-items: normal;
         height: 100vh;
     }
 

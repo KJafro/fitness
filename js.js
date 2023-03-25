@@ -469,7 +469,7 @@ document.getElementById('bacon').onclick = function () {
     caloriesTotal += amount * bacon.calories
     carbsTotal += amount * bacon.carbs
     saltTotal += amount * bacon.salt
-    proteinTotal += amount * bacon.baconProtein
+    proteinTotal += amount * bacon.protein
     potassiumTotal += amount * bacon.potassium
 
     if (!amount) {
